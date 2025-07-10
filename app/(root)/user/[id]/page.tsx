@@ -6,6 +6,9 @@ import Image from "next/image"
 import { notFound } from "next/navigation"
 import { Suspense } from "react"
 
+// Revalidate this page every 60 seconds
+export const revalidate = 60;
+
 
 const page = async ({ params }: { params: Promise<{ id: string }> }): Promise<JSX.Element> => {
 

@@ -13,6 +13,9 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds:true
   },
 
+  // Add this to prevent over-aggressive caching in production
+  output: 'standalone',
+
 images: {
    
     remotePatterns: [

@@ -3,6 +3,7 @@
 import { auth } from "@/auth";
 import { parseServerActionResponse } from "@/lib/utils";
 import { writeClient } from "@/sanity/lib/write-client";
+import { revalidatePath, revalidateTag } from "next/cache";
 import slugify from "slugify";
 
 export const createPitch = async (
@@ -42,6 +43,12 @@ export const createPitch = async (
     };
 
     const result = await writeClient.create({ _type: "startup", ...startup });
+
+    // Revalidate pages to show the new startup
+    revalidatePath("/");
+    revalidatePath("/startup/create");
+    revalidatePath(`/user/${session?.id}`);
+    revalidateTag("startups");
 
     return parseServerActionResponse({
       ...result,

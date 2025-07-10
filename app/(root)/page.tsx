@@ -4,6 +4,9 @@ import { sanityFetch } from "@/sanity/lib/live";
 import { Startup_Queries } from "@/sanity/lib/queries";
 import SearchForm from "../../components/SearchForm";
 
+// Revalidate this page every 60 seconds
+export const revalidate = 60;
+
 export default async function Home({searchParams}:{
   searchParams: Promise<{query?:string}>
 
