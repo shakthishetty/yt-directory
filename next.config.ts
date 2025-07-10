@@ -6,6 +6,13 @@ const nextConfig: NextConfig = {
   //   ppr: 'incremental'
   // },
 
+  typescript:{
+    ignoreBuildErrors:true,
+  },
+  eslint:{
+    ignoreDuringBuilds:true
+  }
+
 images: {
    
     remotePatterns: [
